@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-threaded Web Server</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+
+        .info-box {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+        }
+
+        .file-link {
+            background-color: #e8f4f8;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Multi-threaded Web Server</h1>
+
+    <div class="info-box">
+        <p><strong>Server Version:</strong> 1.0 (HTTP/1.1 Compliant)</p>
+        <p><strong>Description:</strong> A Python-based multi-threaded web server supporting GET and HEAD methods with
+            persistent connections.</p>
+    </div>
+
+    <h2>Available Features</h2>
+    <ul>
+        <li>Multi-threaded request handling</li>
+        <li>HTTP GET and HEAD methods</li>
+        <li>HTTP/1.1 persistent connections (keep-alive)</li>
+        <li>Last-Modified and If-Modified-Since header support</li>
+        <li>Multiple MIME type support</li>
+        <li>Comprehensive request logging</li>
+        <li>Security: Path traversal prevention</li>
+    </ul>
+
+    <h2>Supported Status Codes</h2>
+    <ul>
+        <li><strong>200 OK:</strong> Successful file retrieval</li>
+        <li><strong>304 Not Modified:</strong> File hasn't changed since client last requested it</li>
+        <li><strong>400 Bad Request:</strong> Invalid HTTP request</li>
+        <li><strong>403 Forbidden:</strong> Access denied (path traversal attempt)</li>
+        <li><strong>404 Not Found:</strong> Requested file does not exist</li>
+    </ul>
+
+    <h2>Test Files</h2>
+    <div class="file-link">
+        <p><strong>Text Files:</strong></p>
+        <ul>
+            <li><a href="/index.html">index.html</a> - This page</li>
+            <li><a href="/test.txt">test.txt</a> - Sample text file</li>
+        </ul>
+    </div>
+
+    <h2>HTTP Request Examples</h2>
+    <div class="info-box">
+        <p><strong>GET Request with keep-alive:</strong></p>
+        <code>GET /test.txt HTTP/1.1<br>
+Host: 127.0.0.1:8080<br>
+Connection: keep-alive</code>
+    </div>
+
+    <div class="info-box">
+        <p><strong>HEAD Request:</strong></p>
+        <code>HEAD /index.html HTTP/1.1<br>
+Host: 127.0.0.1:8080</code>
+    </div>
+
+    <div class="info-box">
+        <p><strong>Conditional GET with If-Modified-Since:</strong></p>
+        <code>GET /test.txt HTTP/1.1<br>
+Host: 127.0.0.1:8080<br>
+If-Modified-Since: Mon, 26 Apr 2026 12:00:00 GMT</code>
+    </div>
+
+    <h2>Server Logs</h2>
+    <p>All requests are logged in <code>server.log</code> with the following format:</p>
+    <p><code>ClientIP [Time] "METHOD Path HTTP/1.1" StatusCode StatusText</code></p>
+
+    <hr>
+    <footer>
+        <p>&copy; 2026 Multi-threaded Web Server Project</p>
+    </footer>
+</body>
+
+</html>

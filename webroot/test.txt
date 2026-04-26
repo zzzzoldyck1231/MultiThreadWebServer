@@ -1,0 +1,22 @@
+Test File for Multi-threaded Web Server
+========================================
+
+This is a text file to demonstrate HTTP GET and HEAD requests.
+
+Features demonstrated:
+- File retrieval over HTTP
+- MIME type detection (text/plain)
+- Last-Modified header
+- If-Modified-Since conditional requests
+
+You can test this file with:
+1. GET /test.txt - Retrieves the full content
+2. HEAD /test.txt - Retrieves headers only, no body
+3. GET with If-Modified-Since header - Returns 304 if not modified
+
+Sample curl commands:
+$ curl http://127.0.0.1:8080/test.txt
+$ curl -I http://127.0.0.1:8080/test.txt
+$ curl -H "If-Modified-Since: Mon, 26 Apr 2026 12:00:00 GMT" http://127.0.0.1:8080/test.txt
+
+Generated: 2026-04-26
